@@ -50,7 +50,7 @@ const CardsRender = (props) => {
                 if (pokemon) {
                     if (pokemon.id) {
                         return (
-                            <Link to={`/${pokemon.id}`} key={pokemon.id} className="pokemon-card" >
+                            <Link to={`/pokemon/infos/id/${pokemon.id}`} key={pokemon.id} className="pokemon-card" >
                                 <Card theme={theme.state} size={cardSize.size} >
                                     <img src={pokemon.sprites.other["official-artwork"].front_default ?? pokemon.sprites.front_default} alt={pokemon.name} />
                                     <div className="pokemon-infos" >

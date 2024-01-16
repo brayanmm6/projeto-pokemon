@@ -17,6 +17,7 @@ import { PokemonfilterContext } from "../../contexts/pokemon-filter"
 import CardsRender from "../cards"
 import { WarningMessage } from "../warning-box"
 import { ErrorContext } from "../../contexts/error-context"
+import { handleFilter } from "../../js/handle-actions"
 
 const PokemonInfosRender = (props) => {
 
@@ -76,7 +77,7 @@ const PokemonInfosRender = (props) => {
                                         currentPokemon.data.types.map((pokemonType, index) => {
                                             let type = pokemonType.type.name
                                             return (
-                                                <Button key={index} value={type} onClick={() => setFilter({ filter: type }, setInfos({ data: [] }), setLimit({ value: listDefaultValue }), setSearch({ data: "default" }))}>
+                                                <Button key={index} value={type} onClick={() => handleFilter({setFilter, setInfos, setLimit, setSearch}, type, listDefaultValue) }>
                                                     <SytyledPokemonType type={type}>{type}</SytyledPokemonType>
                                                 </Button>
                                             ) 

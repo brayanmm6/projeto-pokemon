@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ListLimitContext } from "../../../contexts/list-limit-context";
 import { moreToshow } from "../../../js/variables";
 import { LoadingContext } from "../../../contexts/loading-context";
+import { handleShowMoreBtn } from "../../../js/handle-actions";
 
 const ShowMoreButton = () => {
 
@@ -10,10 +11,7 @@ const ShowMoreButton = () => {
     const { setLoading } = useContext(LoadingContext)
 
     return(
-        <Button onClick={ () => {
-            setLimit({value: listLimit.value + moreToshow })
-            setLoading(true)
-        } }>
+        <Button onClick={ () => { handleShowMoreBtn({setLimit, setLoading}, listLimit, moreToshow) } }>
             Show More...
         </Button>
     )

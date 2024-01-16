@@ -25,6 +25,10 @@ Essa barra de pesquisa possúi um algorítmo que possibilita uma pesquisa mais "
 
 ![Home Search Input func](./src//assets/screenshots/search-func.png)
 
+Caso o usuário digite algo inválido na barra de pesquisa, irá aparecer uma mensagem de erro informando o ocorrido.
+
+![Search Input error state](./src/assets/screenshots/search-func-error.png)
+
 Na parte onde ficam os cards inicialmente lhe mostra-rá uma listagem com 10 Pokémons. E logo abaixo você verá um botão `Show more`, que carregará mais 10 Pokémons com suas respectivas informações iniciais.
 
 ![Home Cards](./src//assets/screenshots/cards.png)
@@ -53,6 +57,15 @@ Ao Clicar em um Pokémon, abrirá uma página contendo inforamções mais detalh
 Observe que a parte onde mostra o tipo/tipos do Pokémon, também é um botão. Que faz a filtragem por tipo também nessa página.
 
 ![Pokemon type gif](./src/assets/screenshots/type-button.gif)
+
+## Personalização do projeto:
+
+O projeto usa a biblioteca Styled Components, o que possibilita personalizar cada componente de uma maneira mais fácil e organizada. Os componentes estilizados, encontran-se em *src/styled-components* .
+Nesse mesmo diretório encontra-se também, o componente estilizado dos backgrounds de cada tema. Sendo possível também estizá-los de maneiras diferentes. 
+
+Para uma personalização mais geral, podemos ir em *src/js/objects*. Onde podemos encontrar as cores dos tipos de Pokémons existentes, contendo nome e hexadecimal. E logo abaixo um objeto contendo a definição de cores para componentes que mudam de cor de acordo com o tema. Sendo possível personalizar à gosto. 
+
+![Personalization object](./src/assets/screenshots/personalization.png)
 
 ### O Projeto está 100% responsivo, se ajustando em telas de diferentes tamanhos. 
 

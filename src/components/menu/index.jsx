@@ -11,7 +11,7 @@ const Menu = (props) => {
                 <img src={logo} alt="pokemon-logo" />
             </Link>
             {props.children}
-            <SliderButton />
+            <SliderButton inputId={"slider-button-input"}/>
         </StyledHeader>
     )
 }

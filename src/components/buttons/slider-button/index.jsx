@@ -19,8 +19,4 @@ const SliderButton = (props) => {
     )
 }
 
-SliderButton.defaultProps = {
-    inputId: "slider-button-input" 
-} 
-
 export { SliderButton }
