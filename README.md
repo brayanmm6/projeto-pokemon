@@ -21,7 +21,10 @@ O projeto conta com testes unitários em todos os componentes importantes, para 
 ![Tests](./src/assets/screenshots/tests.gif)
 
 ## Como rodar os testes:
-Para rodar os testes unitários, basta digitar `npm run test` ou `yarn run test`.
+ - Para rodar os testes unitários, basta digitar `npm run test` ou `yarn run test`;
+ - **Caso necessário**, em seguida digitar a tecla da opção desejada para rodar os testes. **Digite a tecla `a` caso queira rodar todos os testes.**
+
+ ![Tests options](./src/assets/screenshots/tests-options.png)
 
 ## Apresentando o projeto:
 
