@@ -10,6 +10,17 @@
 ### [ React Router ](https://reactrouter.com/en/main);
 ### [React Testing library](https://testing-library.com/docs/react-testing-library/intro/);
 
+## Como rodar o Projeto:
+ -- Primeiro digite o comando `npm install` ou `yarn` em seu terminal. **Esse comando instala todas as dependências necessárias para o projeto funcionar corretamente.**
+ -- Aguarde o processo de instalação das dependências do projeto.
+ -- Ao finlizar o proceso, basta digitar o comando `npm start` ou `yarn start` no terminal, que será aberta uma guia em seu navegador padrão, já com o projeto rodando.
+
+## Testes Unitários:
+O projeto conta com testes unitários em todos os componentes importantes, para garantir o funcionamento correto dos mesmos, previnindo de erros até mesmo em caso de refatoração do código. Os testes encontran-se em `src/tests/components`.
+
+![Tests](./src/assets/screenshots/tests.gif)
+
+Para rodar os testes unitários, basta digitar `npm run test` ou `yarn run test`.
 ## Apresentando o projeto:
 
 ### Home:
@@ -60,10 +71,10 @@ Observe que a parte onde mostra o tipo/tipos do Pokémon, também é um botão. 
 
 ## Personalização do projeto:
 
-O projeto usa a biblioteca Styled Components, o que possibilita personalizar cada componente de uma maneira mais fácil e organizada. Os componentes estilizados, encontran-se em *src/styled-components* .
+O projeto usa a biblioteca Styled Components, o que possibilita personalizar cada componente de uma maneira mais fácil e organizada. Os componentes estilizados, encontran-se em `src/styled-components` .
 Nesse mesmo diretório encontra-se também, o componente estilizado dos backgrounds de cada tema. Sendo possível também estizá-los de maneiras diferentes. 
 
-Para uma personalização mais geral, podemos ir em *src/js/objects*. Onde podemos encontrar as cores dos tipos de Pokémons existentes, contendo nome e hexadecimal. E logo abaixo um objeto contendo a definição de cores para componentes que mudam de cor de acordo com o tema. Sendo possível personalizar à gosto. 
+Para uma personalização mais geral, podemos ir em `src/js/objects`. Onde podemos encontrar as cores dos tipos de Pokémons existentes, contendo nome e hexadecimal. E logo abaixo um objeto contendo a definição de cores para componentes que mudam de cor de acordo com o tema. Sendo possível personalizar à gosto. 
 
 ![Personalization object](./src/assets/screenshots/personalization.png)
 
