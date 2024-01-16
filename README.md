@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Projeto Pokémon com PokéAPI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Projeto proposto pelo curso de desenvolvimento full stack DevQuest, com o obejtivo de praticar tudo o que foi passado até aqui.
 
-## Available Scripts
+## Tecnologias presentes:
 
-In the project directory, you can run:
+### <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="50px"/>  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg" width="50px"/>  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" width="50px"/>  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" width="50px"/>  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" width="50px"/> ;
+### [ PokeAPI ](https://pokeapi.co/);
+### [ Styled Components ](https://styled-components.com );
+### [ React Router ](https://reactrouter.com/en/main);
+### [React Testing library](https://testing-library.com/docs/react-testing-library/intro/);
 
-### `npm start`
+## Apresentando o projeto:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Home:
+No topo da Home encontra-se um simples menu, com a logo do anime Pokémon, e paralelo a ela o botão para alternar o tema.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Home Menu](./src//assets/screenshots/menu.png)
 
-### `npm test`
+Em seguida, já na seção dos cards, vemos uma barra de ferramentas. Onde encontra-se a filtragem por tipo de Pokémon, e do outro lado a barra de pesquisa, para pesquisar por **nome de um Pokemon**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Home Toolbar](./src//assets/screenshots/toolbar.png)
 
-### `npm run build`
+Essa barra de pesquisa possúi um algorítmo que possibilita uma pesquisa mais "facilitada", fazendo com que possa ser encontrado o pekémon desejado mesmo sem digitar o nome exato ou completo do Pokemón, que aparecerão os nomes mais próximos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Home Search Input func](./src//assets/screenshots/search-func.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Na parte onde ficam os cards inicialmente lhe mostra-rá uma listagem com 10 Pokémons. E logo abaixo você verá um botão `Show more`, que carregará mais 10 Pokémons com suas respectivas informações iniciais.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Home Cards](./src//assets/screenshots/cards.png)
 
-### `npm run eject`
+Vale ressaltar que esses valores podem ser alterados nos arquivos do projeto, na pasta `variables` em `./src/js/variables`, nas variáveis `listDefaultValue` e `moreToshow`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Cards default values](./src//assets/screenshots/cards-default-values.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Página de Infos sobre um Pókemon:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Ao Clicar em um Pokémon, abrirá uma página contendo inforamções mais detalhadas sobre o mesmo. Sendo elas:
+ - Nome; 
+ - Id;
+ - Imagem Oficial;
+ - Estatísticas;
+ - Peso;
+ - Tipo ou Tipos do Pokémon;
+ - Altura;
+ - Experiência Base;
+ - Habilidades do Pokémon, contendo nome e sua respectiva descrição;
+ - Lista de Movimentos, contendo nome e sua respectiva descrição;
+ - Uma versão em miniatura da seção de Cards presente na Home.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Pokemon Info](./src/assets/screenshots/pokemon-info.png)
 
-## Learn More
+Observe que a parte onde mostra o tipo/tipos do Pokémon, também é um botão. Que faz a filtragem por tipo também nessa página.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Pokemon type gif](./src/assets/screenshots/type-button.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### O Projeto está 100% responsivo, se ajustando em telas de diferentes tamanhos. 
 
-### Code Splitting
+## Capturas de tela:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Desktop:
 
-### Analyzing the Bundle Size
+Home:
+![Desktop Home light](./src/assets/screenshots/desktop-home-light.png)
+![Desktop Home dark](./src/assets/screenshots/desktop-home-dark.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Pokemon Infos: 
+![Desktop Poke Infos light](./src/assets/screenshots/poke-info-desktop-light.png)
+![Desktop Poke Infos dark](./src/assets/screenshots/poke-info-desktop-dark.png)
 
-### Making a Progressive Web App
+### Mobile:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Home:
+![Mobile Home light](./src/assets/screenshots/mobile-home-light.png)
+![Mobile Home dark](./src/assets/screenshots/mobile-home-dark.png)
 
-### Advanced Configuration
+Pokemon Infos: 
+![Mobile Poke Infos light](./src/assets/screenshots/poke-info-mobile-light.png)
+![Mobile Poke Infos dark](./src/assets/screenshots/poke-info-mobile-dark.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Feito com muito amor 💙. Espero que gostem 😊!!!
