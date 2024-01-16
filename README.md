@@ -11,6 +11,7 @@
 ### [React Testing library](https://testing-library.com/docs/react-testing-library/intro/);
 
 ## Como rodar o Projeto:
+Passos:
  -- Primeiro digite o comando `npm install` ou `yarn` em seu terminal. **Esse comando instala todas as dependências necessárias para o projeto funcionar corretamente.**
  -- Aguarde o processo de instalação das dependências do projeto.
  -- Ao finlizar o proceso, basta digitar o comando `npm start` ou `yarn start` no terminal, que será aberta uma guia em seu navegador padrão, já com o projeto rodando.
@@ -20,7 +21,9 @@ O projeto conta com testes unitários em todos os componentes importantes, para 
 
 ![Tests](./src/assets/screenshots/tests.gif)
 
+## Como rodar os testes:
 Para rodar os testes unitários, basta digitar `npm run test` ou `yarn run test`.
+
 ## Apresentando o projeto:
 
 ### Home:
