@@ -36,6 +36,10 @@ const Responsive = createGlobalStyle`
             align-items: flex-start;
             gap: 15px;
             padding: 20px 5px;
+
+            .filter-options{
+                top: 135px;
+            }
         }
         ${StyledSearchBox}{
             justify-content: space-between;

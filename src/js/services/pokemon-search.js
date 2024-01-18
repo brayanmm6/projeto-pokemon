@@ -1,5 +1,9 @@
-const pokemonSearch = async (name) => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${name}`
+const pokemonSearch = async (pokemon, setError, setErrorMessage) => {
+    if(pokemon > 1025){
+        setError({state: true})
+        setErrorMessage({message: `The id "${pokemon}" can not be find in the database!`})
+    }
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
     const response = await fetch(url)
     return await response.json()
 }

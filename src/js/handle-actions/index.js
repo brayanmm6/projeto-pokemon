@@ -23,4 +23,9 @@ const handleShowMoreBtn = ({...action}, listLimit, moreToshow) => {
     action.setLoading && action.setLoading(true)
 }
 
-export { handleSearchInputByKey, handleSearchInputByChange, handleFilter, handleShowMoreBtn }
+const handleErrorBtn = ({...action}) => {
+    action.setError && action.setError({state: false})
+    action.setSearch && action.setSearch({data: "default"}) 
+}
+
+export { handleSearchInputByKey, handleSearchInputByChange, handleFilter, handleShowMoreBtn, handleErrorBtn }

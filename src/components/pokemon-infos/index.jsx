@@ -26,7 +26,7 @@ const PokemonInfosRender = (props) => {
     const { setInfos, cardSize, setCardSize } = useContext(CardsContext)
     const { setSearch } = useContext(SearchContext)
     const { setLimit } = useContext(ListLimitContext)
-    const { error } = useContext(ErrorContext)
+    const { error, setError, setErrorMessage } = useContext(ErrorContext)
 
     const [currentPokemon, setCurrentPokemon] = useState({
         data: [],
@@ -43,7 +43,7 @@ const PokemonInfosRender = (props) => {
     const { id } = useParams()
 
     async function fetchData() {
-        const pokemon = await pokemonSearch(id)
+        const pokemon = await pokemonSearch(id, setError, setErrorMessage)
         setCurrentPokemon({ data: await pokemon })
         setPokemonAbilities(await pokemon, setAbilities)
         setPokemonMoves(await pokemon, setMoves, setLoading)
@@ -66,22 +66,22 @@ const PokemonInfosRender = (props) => {
                                 currentPokemon.data.name &&
                                 <SectionMainInfos theme={props.theme} data-testid={"main-infos"}>
                                     <h2 className="pokemon-name">{currentPokemon.data.name}</h2>
-                                    <img className="pokemon-image" src={currentPokemon.data.sprites.other["official-artwork"].front_default ?? currentPokemon.data.sprites.front_default}   alt={currentPokemon.data.name} />
+                                    <img className="pokemon-image" src={currentPokemon.data.sprites.other["official-artwork"].front_default ?? currentPokemon.data.sprites.front_default } alt={currentPokemon.data.name} />
                                 </SectionMainInfos>
                             }
                             <SectionMoreInfos theme={props.theme} data-testid={"more-infos"}>
                                 <p className="pokemon-id">ID: #{currentPokemon.data.id}</p>
                                 <div className="pokemon-type" data-testid={"pokemon-types"}>
                                     {
-                                        currentPokemon.data.types && 
+                                        currentPokemon.data.types &&
                                         currentPokemon.data.types.map((pokemonType, index) => {
                                             let type = pokemonType.type.name
                                             return (
-                                                <Button key={index} value={type} onClick={() => handleFilter({setFilter, setInfos, setLimit, setSearch}, type, listDefaultValue) }>
+                                                <Button key={index} value={type} onClick={() => handleFilter({ setFilter, setInfos, setLimit, setSearch }, type, listDefaultValue)}>
                                                     <SytyledPokemonType type={type}>{type}</SytyledPokemonType>
                                                 </Button>
-                                            ) 
-                                        }) 
+                                            )
+                                        })
                                     }
                                 </div>
                                 <PokemonStats data-testid={"pokemon-stats"}>

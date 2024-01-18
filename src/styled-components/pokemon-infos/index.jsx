@@ -30,6 +30,7 @@ const SectionMainInfos = styled.section`
     box-shadow: 0 7px 10px ${ props => props.theme === "dark" ? themeColors.dark.boxShadow : themeColors.light.boxShadow };
     border: solid 1px ${ props => props.theme === "dark" ? themeColors.dark.borderColor : themeColors.light.borderColor };
     padding: 20px;
+    min-width: 300px;
     width: 100%;
     max-height: 620px;
     border-radius: 10px;
@@ -40,7 +41,7 @@ const SectionMainInfos = styled.section`
     flex-direction: column;
     gap: 10px;
 
-    & .pokemon-name{
+    .pokemon-name{
         width: 100%;
         background-color: var(--color-blue-100);
         font-size: 40px;
@@ -51,7 +52,7 @@ const SectionMainInfos = styled.section`
         padding: 10px 5px;
     }
 
-    & .pokemon-image{
+    .pokemon-image{
         width: 100%;
     }
 ` 
@@ -332,7 +333,6 @@ const PokemonMovesContainer = styled.div`
         border-left: solid 1px;
     }
 
-    
 `
 
 const TitleHeader = styled.header`
