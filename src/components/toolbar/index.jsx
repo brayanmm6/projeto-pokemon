@@ -7,10 +7,10 @@ import { useContext, useEffect } from "react"
 import { PokemonfilterContext } from "../../contexts/pokemon-filter"
 import { CardsContext } from "../../contexts/cards-context"
 import { ListLimitContext } from "../../contexts/list-limit-context"
-import { listDefaultValue, crossSymbol, searchSymbol } from "../../js/variables"
+import { pokeLimit, crossSymbol, searchSymbol } from "../../js/variables"
 import { SearchContext } from "../../contexts/search-context"
 import { searchByLabel } from "../../js/services/pokemon-search"
-import { handleSearchInputByKey, handleSearchInputByChange, handleFilter } from "../../js/handle-actions"
+import { handleSearchInputByKey, handleSearchInputByChange, handleFilter, handlefilterDefault } from "../../js/handle-actions"
 
 const Toolbar = (props) => {
     const { pokemonFilter, setFilter } = useContext(PokemonfilterContext) 
@@ -32,16 +32,16 @@ const Toolbar = (props) => {
                     pokemonFilter.filter != "default" && 
                         <CurrentFilterContainer>
                             <CurrentFilter filter={pokemonFilter.filter} theme={props.theme} data-testid={"current-filter"}>{pokemonFilter.filter}</CurrentFilter>
-                            <Button onClick={() => setFilter({filter: "default"})} data-testid={"reset-filter"}>{crossSymbol}</Button>
+                            <Button onClick={() => handlefilterDefault({setFilter, setLimit, setInfos, setSearch})} data-testid={"reset-filter"}>{crossSymbol}</Button>
                         </CurrentFilterContainer>
                 }
                 
                 <ul className="filter-options">
-                    <li><Button value="default" onClick={() => setFilter({filter: "default"}, setSearch({data: "default"}) )}>{"Default."} <StyledBall type={"default"} theme={props.theme} /> </Button></li>
+                    <li><Button value="default" onClick={() => handlefilterDefault({setFilter, setLimit, setInfos, setSearch})}>{"Default."} <StyledBall type={"default"} theme={props.theme} /> </Button></li>
                     { pokemonTypesColors.map( (pokemonType, index) => {
                         return(
                             <li key={index}>
-                                <Button value={pokemonType.name} onClick={ () => handleFilter({setFilter, setInfos, setLimit, setSearch}, pokemonType.name, listDefaultValue)}> {pokemonType.name} <StyledBall type={pokemonType.name}/> </Button> 
+                                <Button value={pokemonType.name} onClick={ () => handleFilter({setFilter, setInfos, setLimit, setSearch}, pokemonType.name, pokeLimit)}> {pokemonType.name} <StyledBall type={pokemonType.name}/> </Button> 
                             </li>
                         )
                     } ) }

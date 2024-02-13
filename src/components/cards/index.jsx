@@ -23,7 +23,7 @@ const CardsRender = (props) => {
 
     useEffect(() => {
         if (search.data === "default") {
-            pokemonFilter.filter === "default" ? setPokemons(cardInfos, setInfos, listLimit, setLoading) : setPokemonsByfilter(cardInfos, setInfos, pokemonFilter.filter, listLimit, setLoading)
+            pokemonFilter.filter === "default" ? setPokemons(cardInfos, setInfos, listLimit, setLoading): setPokemonsByfilter(cardInfos, setInfos, pokemonFilter.filter, listLimit, setLoading)
         } else {
             setPokemonsBySearch(search.data, setInfos, setLoading, setError, setErrorMessage)
             search.data.length === 0 && setSearch({ data: "default" })
@@ -34,45 +34,47 @@ const CardsRender = (props) => {
     let count = 0
     return (
         <CardsContainer size={props.size} data-testid={"cards-container"}>
-            {cardInfos.data.map(pokemonInfo => {
+            {
+                cardInfos.data.map((pokemonInfo, index) => {
 
-                count += 1
-                let pokemon = pokemonInfo
+                    count += 1
+                    let pokemon = pokemonInfo
 
-                if (search.data === "default") {
-                    if (pokemonFilter.filter === "default") {
-                        pokemon = cardInfos.data.find(info => {
-                            return info.id === count
-                        })
+                    if (search.data === "default") {
+                        if (pokemonFilter.filter === "default") {
+                            pokemon = cardInfos.data.find(info => {
+                                return info.id === count
+                            })
+                        }
                     }
-                }
 
-                if (pokemon) {
-                    if (pokemon.id) {
-                        return (
-                            <Link to={`/pokemon/infos/id/${pokemon.id}`} key={pokemon.id} className="pokemon-card" >
-                                <Card theme={theme.state} size={cardSize.size} >
-                                    <img src={pokemon.sprites.other["official-artwork"].front_default ?? pokemon.sprites.front_default} alt={pokemon.name} />
-                                    <div className="pokemon-infos" >
-                                        <div className="infos" >
-                                            <h2>{pokemon.name}</h2>
-                                            <p>ID: #{pokemon.id}</p>
+                    if (pokemon) {
+                        if (pokemon.id) {
+                            return (
+                                <Link to={`/pokemon/infos/id/${pokemon.id}`} key={index} className="pokemon-card" >
+                                    <Card theme={theme.state} size={cardSize.size} >
+                                        <img src={pokemon.sprites.other["official-artwork"].front_default ?? pokemon.sprites.front_default} alt={pokemon.name} />
+                                        <div className="pokemon-infos" >
+                                            <div className="infos" >
+                                                <h2>{pokemon.name}</h2>
+                                                <p>ID: #{pokemon.id}</p>
+                                            </div>
+                                            <div className="pokemon-type" >
+                                                {pokemon.types.map((pokemonType, index) => {
+                                                    let type = pokemonType.type.name
+                                                    return (
+                                                        <SytyledPokemonType key={index} type={type} >{type}</SytyledPokemonType>
+                                                    )
+                                                })}
+                                            </div>
                                         </div>
-                                        <div className="pokemon-type" >
-                                            {pokemon.types.map((pokemonType, index) => {
-                                                let type = pokemonType.type.name
-                                                return (
-                                                    <SytyledPokemonType key={index} type={type} >{type}</SytyledPokemonType>
-                                                )
-                                            })}
-                                        </div>
-                                    </div>
-                                </Card>
-                            </Link>
-                        )
+                                    </Card>
+                                </Link>
+                            )
+                        }
                     }
-                }
-            })}
+                })
+            }
         </CardsContainer>
     )
 }

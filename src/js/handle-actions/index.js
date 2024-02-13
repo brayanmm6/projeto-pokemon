@@ -12,14 +12,21 @@ const handleSearchInputByChange = ({...action}, event) => {
 }
 
 const handleFilter = ({...action}, pokemonType, listDefaultValue) => {
-    action.setFilter({filter: pokemonType})
-    action.setInfos({data: []})
-    action.setLimit({value: listDefaultValue})
-    action.setSearch({data: "default"})
+    action.setFilter && action.setFilter({filter: pokemonType})
+    action.setInfos && action.setInfos({data: []})
+    action.setLimit && action.setLimit({value: listDefaultValue})
+    action.setSearch && action.setSearch({data: "default"})
+}
+
+const handlefilterDefault = ({...action}) => {
+    action.setFilter && action.setFilter({filter: "default"})
+    action.setLimit && action.setLimit({value: 0})
+    action.setInfos && action.setInfos({data: []})
+    action.setSearch && action.setSearch({data: "default"})
 }
 
 const handleShowMoreBtn = ({...action}, listLimit, moreToshow) => {
-    action.setLimit && action.setLimit({value: listLimit.value + moreToshow })
+    action.setLimit && action.setLimit({value: listLimit.value + moreToshow})
     action.setLoading && action.setLoading(true)
 }
 
@@ -28,4 +35,4 @@ const handleErrorBtn = ({...action}) => {
     action.setSearch && action.setSearch({data: "default"}) 
 }
 
-export { handleSearchInputByKey, handleSearchInputByChange, handleFilter, handleShowMoreBtn, handleErrorBtn }
+export { handleSearchInputByKey, handleSearchInputByChange, handleFilter, handlefilterDefault, handleShowMoreBtn, handleErrorBtn }

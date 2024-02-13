@@ -1,7 +1,7 @@
 import { mainUrl, pokeInfoUrl } from "../variables"
 
-const getPokemonNames = async (limit) => {
-    const url = `${mainUrl}/pokemon?limit=${limit}` 
+const getPokemonNames = async (limit, offset) => {
+    const url = `${mainUrl}/pokemon?limit=${limit}&offset=${offset}` 
     const response = await fetch(url)
     return await response.json()
 }

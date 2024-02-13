@@ -1,11 +1,11 @@
 import { getPokemonInfos, getPokemonNames } from "./pokemon-list"
-import { listDefaultValue } from "../variables"
+import { pokeLimit } from "../variables"
 import { getPokemonsByFilter } from "./pokemon-filter"
 import { advancedSearch } from "./pokemon-search"
 import { getPokemonAbilities, getPokemonMoves } from "./pokemon-list"
 
 const pokemonDataVerify = (pokemonData, setPokemonData, listLimit, newPokemonData, tempData, setLoading) => { 
-    if (listLimit.value > listDefaultValue) {
+    if (listLimit.value > pokeLimit) {
         const checkPosition = pokemonData.data.findIndex(item => item.id === newPokemonData.id)
         if (checkPosition < 0) {
             tempData.push(newPokemonData)
@@ -25,11 +25,17 @@ const pokemonDataVerify = (pokemonData, setPokemonData, listLimit, newPokemonDat
 const setPokemons = async (pokemonData, setPokemonData, listLimit, setLoading) => {
     setLoading(true)
     const tempData = []
-    const pokemonNames = await getPokemonNames(listLimit.value)
-    pokemonNames.results.forEach(async pokemon => {
-        const pokemons = await getPokemonInfos(pokemon.name)
-        pokemonDataVerify(pokemonData, setPokemonData, listLimit, pokemons, tempData, setLoading)
+    const pokemonNames = await getPokemonNames(pokeLimit, listLimit.value)
+    const newData = new Promise ((resolve) => {
+        pokemonNames.results.forEach(async pokemon => {
+            const pokemons = await getPokemonInfos(pokemon.name)
+            tempData.push(await pokemons)
+            tempData.length === pokemonNames.results.length && resolve(tempData)
+        })
     })
+    
+    pokemonData.data.length > 0 ? setPokemonData({data: [...pokemonData.data, ...await newData]}) : setPokemonData({data: await newData})
+    setLoading(false)
 }
 
 const setPokemonsByfilter = async (pokemonData, setPokemonData, filter, listLimit, setLoading) => {

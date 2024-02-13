@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { listDefaultValue } from "../../js/variables"
+import { pokeLimit } from "../../js/variables"
 import { MainSection, Infos, SectionPokemonInfos, SectionMainInfos, SectionMoreInfos, PokemonStats, Abilities, AsideCards, PokemonMovesContainer, TitleHeader } from "../../styled-components/pokemon-infos"
 import { useParams } from "react-router-dom"
 import { pokemonSearch } from "../../js/services/pokemon-search"
@@ -77,7 +77,7 @@ const PokemonInfosRender = (props) => {
                                         currentPokemon.data.types.map((pokemonType, index) => {
                                             let type = pokemonType.type.name
                                             return (
-                                                <Button key={index} value={type} onClick={() => handleFilter({ setFilter, setInfos, setLimit, setSearch }, type, listDefaultValue)}>
+                                                <Button key={index} value={type} onClick={() => handleFilter({ setFilter, setInfos, setLimit, setSearch }, type, pokeLimit)}>
                                                     <SytyledPokemonType type={type}>{type}</SytyledPokemonType>
                                                 </Button>
                                             )
